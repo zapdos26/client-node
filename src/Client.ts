@@ -25,7 +25,7 @@ const packageVersion = '0.13.0'; // package version
  * Main client.
  */
 export class Client {
-    private provider: Provider;
+    private provider: Provider|OAuthProvider;
     private userAgent: string;
     public urls: { api: { [version: string]: string }, public: string } = {
         api: {
@@ -105,7 +105,7 @@ export class Client {
     /**
      * Creates and returns an authentication provider instance.
      */
-    public use(provider: Provider): Provider {
+    public use(provider: Provider|OAuthProvider): Provider|OAuthProvider {
         this.provider = provider;
         return provider;
     }
